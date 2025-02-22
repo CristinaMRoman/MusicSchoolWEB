@@ -1,0 +1,31 @@
+﻿@page
+@model MusicSchoolWEB.Pages.MembruInstrumente.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MembruInstrument</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MembruInstrument.Membru)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MembruInstrument.Membru.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MembruInstrument.Intrument)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MembruInstrument.Intrument.ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.MembruInstrument.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

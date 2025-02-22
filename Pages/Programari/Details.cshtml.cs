@@ -28,6 +28,11 @@ namespace MusicSchoolWEB.Pages.Programari
                 return NotFound();
             }
 
+            Programare = await _context.Programare
+               .Include(p => p.Teacher)
+               .Include(p => p.Student)
+               .FirstOrDefaultAsync(m => m.ID == id);
+
             var programare = await _context.Programare.FirstOrDefaultAsync(m => m.ID == id);
             if (programare == null)
             {

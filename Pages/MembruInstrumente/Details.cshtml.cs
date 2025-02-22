@@ -28,6 +28,11 @@ namespace MusicSchoolWEB.Pages.MembruInstrumente
                 return NotFound();
             }
 
+            MembruInstrument = await _context.MembruInstrument
+             .Include(mi => mi.Membru)
+             .Include(mi => mi.Intrument)
+             .FirstOrDefaultAsync(m => m.ID == id);
+
             var membruinstrument = await _context.MembruInstrument.FirstOrDefaultAsync(m => m.ID == id);
             if (membruinstrument == null)
             {

@@ -28,6 +28,12 @@ namespace MusicSchoolWEB.Pages.Feedbacks
                 return NotFound();
             }
 
+            // Include relatiile pentru a prelua datele corect
+            Feedback = await _context.Feedback
+                .Include(f => f.Membru)
+                .Include(f => f.Programare)
+                .FirstOrDefaultAsync(m => m.ID == id);
+
             var feedback = await _context.Feedback.FirstOrDefaultAsync(m => m.ID == id);
             if (feedback == null)
             {
